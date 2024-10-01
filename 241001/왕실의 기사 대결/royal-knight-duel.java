@@ -24,6 +24,9 @@ public class Main {
 		if (0 > r || r >= L || 0 > c || c >= L) {
 			return false;
 		}
+		if (0 > r + h - 1 || r + h - 1 >= L || 0 > c + w - 1 || c + w - 1 >= L) {
+			return false;
+		}
 		for (int i = r; i < r + h; i++) {
 			for (int j = c; j < c + w; j++) {
 				if (map[i][j] == 2) {

@@ -168,7 +168,7 @@ public class Main {
 				ans += k.total;
 			}
 		}
-		bw.write(ans + "");
+		bw.write(ans + "\n");
 		bw.close();
 	}
 }

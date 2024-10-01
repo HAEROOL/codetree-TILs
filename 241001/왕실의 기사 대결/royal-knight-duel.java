@@ -24,7 +24,7 @@ public class Main {
 		if (0 > r || r >= L || 0 > c || c >= L) {
 			return false;
 		}
-		if (0 > r + h - 1 || r + h - 1 >= L || 0 > c + w - 1 || c + w - 1 >= L) {
+		if (r + h - 1 >= L || c + w - 1 >= L) {
 			return false;
 		}
 		for (int i = r; i < r + h; i++) {

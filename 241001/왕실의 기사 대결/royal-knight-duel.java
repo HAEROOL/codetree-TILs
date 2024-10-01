@@ -21,20 +21,7 @@ public class Main {
 	static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
 	static boolean isPossible(int r, int c, int w, int h) {
-		if (0 > r || r >= L || 0 > c || c >= L) {
-			return false;
-		}
-		if (r + h - 1 >= L || c + w - 1 >= L) {
-			return false;
-		}
-		for (int i = r; i < r + h; i++) {
-			for (int j = c; j < c + w; j++) {
-				if (map[i][j] == 2) {
-//					System.out.println(i + " " + j);
-					return false;
-				}
-			}
-		}
+		
 		return true;
 	}
 
@@ -129,12 +116,16 @@ public class Main {
 		L = Integer.parseInt(st.nextToken());
 		N = Integer.parseInt(st.nextToken());
 		Q = Integer.parseInt(st.nextToken());
-		map = new int[L][L];
+		map = new int[L + 2][L + 2];
+		Arrays.fill(map[0], 2);
 		for (int i = 0; i < L; i++) {
 			st = new StringTokenizer(br.readLine());
-			for (int j = 0; j < L; j++) {
+			map[i][0] = 2;
+			map[i][L + 1] = 2;
+			for (int j = 1; j < L + 1; j++) {
 				map[i][j] = Integer.parseInt(st.nextToken());
 			}
+			
 		}
 //		System.out.println(L + " " + N + " " + Q);
 //		for (int[] row : map) {
@@ -144,8 +135,8 @@ public class Main {
 		dead = new boolean[N];
 		for (int i = 0; i < N; i++) {
 			st = new StringTokenizer(br.readLine());
-			int r = Integer.parseInt(st.nextToken()) - 1;
-			int c = Integer.parseInt(st.nextToken()) - 1;
+			int r = Integer.parseInt(st.nextToken());
+			int c = Integer.parseInt(st.nextToken());
 			int h = Integer.parseInt(st.nextToken());
 			int w = Integer.parseInt(st.nextToken());
 			int k = Integer.parseInt(st.nextToken());

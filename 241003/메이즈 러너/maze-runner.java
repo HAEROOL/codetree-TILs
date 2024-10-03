@@ -78,31 +78,27 @@ public class Main {
 	}
 
 	static int[] findBox() {
-		for (int w = 2; w < N; w++) {
-			for (int sx = 0; sx < N - w; sx++) {
-				for (int sy = 0; sy < N - w; sy++) {
+		for(int w = 2 ; w < N ; w++) {
+			for(int sx = 0 ; sx <= N - w + 1; sx ++) {
+				for(int sy = 0 ; sy <= N - w + 1 ; sy ++) {
 					boolean p = false;
 					boolean exit = false;
-					for (int i = sx; i < sx + w; i++) {
-						for (int j = sy; j < sy + w; j++) {
-							if (map[i][j] == -11) {
-								exit = true;
-							}
+					for(int i = sx ; i < sx + w ; i++) {
+						for(int j = sy ; j < sy + w ; j++) {
+							if(ex == i && ey == j) exit = true;
 							for(Player pl : players) {
 								if(pl == null) continue;
-								if(pl.x == i && pl.y == j) {
-									p = true;
-									break;
-								}
+								if(pl.x == i && pl.y == j) p = true;
 							}
 						}
-						if (p && exit)
-							return new int[] { sx, sy, w };
+					}
+					if(p && exit) {
+						return new int[] {sx, sy, w};
 					}
 				}
 			}
 		}
-		return new int[] { -1, -1, -1 };
+		return new int[]{-1, -1, -1};
 	}
 	static void breakWall(int sx, int sy, int w) {
 		for(int i = sx ; i < sx + w ; i++) {

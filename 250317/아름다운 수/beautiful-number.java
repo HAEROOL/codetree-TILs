@@ -5,11 +5,12 @@ public class Main {
     static void combination(int x, int[] sel){
 //    	System.out.println(x);
         if(x == sel.length){
+//        	System.out.println(Arrays.toString(sel));
             cnt++;
             return;
         }
-        for(int i = 1 ; i <= 9 ; i++) {
-        	if(x + i > k) continue;
+        for(int i = 1 ; i <= 4 ; i++) {
+        	if(x + i > k) break;
         	for(int j = x ; j < x + i ; j++) {
         		sel[j] = i;
         	}

@@ -3,7 +3,7 @@ const input = fs.readFileSync(0).toString().trim().split('\n');
 const n = Number(input[0]);
 const segments = input.slice(1, 1 + n).map(line => line.split(' ').map(Number));
 
-let ans = Number.MIN_VALUE
+let ans = 1;
 
 function cal(sel){
     const v = new Array(1000).fill(false);
@@ -32,6 +32,7 @@ function cal(sel){
 
 function subset(k, sel){
     if(k == sel.length){
+        // console.log(sel)
         cal(sel);
         return;
     }

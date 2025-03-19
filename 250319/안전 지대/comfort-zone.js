@@ -39,7 +39,7 @@ function bfs(k){
     return cnt
 }
 
-for(let k = 1 ; k < K + 1 ; k++){
+for(let k = 1 ; k < 101 ; k++){
     const cnt = bfs(k);
     if(cnt > ansCnt){
         ansCnt = cnt

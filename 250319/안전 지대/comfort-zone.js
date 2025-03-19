@@ -13,20 +13,16 @@ let ans = 0;
 let ansCnt = 0;
 function bfs(k){
     const v = new Array(n).fill(null).map(() => new Array(m).fill(false));
-    let size = 0
     let cnt = 0;
     for(let i = 0 ; i < n ; i++){
         for(let j = 0 ; j < m ; j++){
             if(!v[i][j] && grid[i][j] > k){
                 cnt++;
-                size = 1;
                 const q = [];
                 q.push([i, j]);
                 v[i][j] = true;
-
                 while(q.length !== 0){
                     const [x, y] = q.shift();
-
                     for(let d = 0 ; d < 4 ; d++){
                         const nx = x + dx[d]
                         const ny = y + dy[d]
@@ -34,21 +30,21 @@ function bfs(k){
                         if(!v[nx][ny] && grid[nx][ny] > k){
                             q.push([nx, ny])
                             v[nx][ny] = true;
-                            size++;
                         }
                     }
                 }
             }
         }
     }
-    return {size, cnt}
+    return cnt
 }
 
 for(let k = 1 ; k < K + 1 ; k++){
-    const {size, cnt} = bfs(k);
+    const cnt = bfs(k);
     if(cnt > ansCnt){
         ansCnt = cnt
         ans = k 
+        // console.log(k, "일때 ", cnt)
     }
 }
 console.log(ans, ansCnt)

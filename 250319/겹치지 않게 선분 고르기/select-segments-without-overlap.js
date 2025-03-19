@@ -13,14 +13,14 @@ function cal(sel){
             let isPossible = true;
             const st = segments[i][0];
             const end = segments[i][1];
-            for(let j = st ; j < end ; j++){
+            for(let j = st ; j < end + 1 ; j++){
                 if(v[j]){
                     isPossible = false;
                     break;
                 }
             }
             if(isPossible){
-                for(let j = st ; j < end ; j++){
+                for(let j = st ; j < end + 1 ; j++){
                     v[j] = true;
                 }
                 cnt++;
